@@ -66,19 +66,7 @@ def scan(folder: Path):
                 MY_OTHER.append(full_name)
 
 
-folder_for_scan = sys.argv[1]
-print(f'Start in folder: {folder_for_scan}')
 
-scan(Path(folder_for_scan))
-print(f"Images jpeg: {JPEG_IMAGES}")
-print(f"Images jpg: {JPG_IMAGES}")
-print(f"Images png: {PNG_IMAGES}")
-print(f"Images svg: {SVG_IMAGES}")
-print(f"Audio mp3: {MP3_AUDIO}")
-print(f"ARCHIVES: {ARCHIVES}")
-print('*' * 25)
-print(f'Types of file in folder: {EXTENSIONS}')
-print(f'UNKNOWN: {UNKNOWN}')
 
 def handle_media(filename: Path, target_folder: Path) -> None:
     target_folder.mkdir(exist_ok=True, parents=True)
@@ -129,5 +117,19 @@ def main(folder: Path) -> None:
 
 
 if __name__ == '__main__':
+    folder_for_scan = sys.argv[1]
+    print(f'Start in folder: {folder_for_scan}')
+
+    scan(Path(folder_for_scan))
+    print(f"Images jpeg: {JPEG_IMAGES}")
+    print(f"Images jpg: {JPG_IMAGES}")
+    print(f"Images png: {PNG_IMAGES}")
+    print(f"Images svg: {SVG_IMAGES}")
+    print(f"Audio mp3: {MP3_AUDIO}")
+    print(f"ARCHIVES: {ARCHIVES}")
+    print('*' * 25)
+    print(f'Types of file in folder: {EXTENSIONS}')
+    print(f'UNKNOWN: {UNKNOWN}')
+
     folder_for_scan = Path(sys.argv[1])
     main(folder_for_scan.resolve())
